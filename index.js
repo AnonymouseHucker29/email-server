@@ -1,3 +1,8 @@
+/*
+    - Server for sending emails on my portfolio website (https://brent.portfolio.vercel.app)
+    - Deployed in cyclic.sh (https://stormy-onesies.cyclic.cloud/)
+*/
+
 const express = require("express")
 const bodyParser = require("body-parser")
 const nodemailer = require("nodemailer")
@@ -39,7 +44,7 @@ app.post("/", (req, res) => {
             from: myEmail,
             to: myEmail,
             subject: "Portfolio Email",
-            text: `Name: ${name}\nMessage: ${message}\nEmail: ${email}`,
+            text: `Name: ${name}\n\nEmail: ${email}\n\nMessage: ${message}`,
         };
 
         transporter.sendMail(mailOptions, (error, info) => {
