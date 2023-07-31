@@ -10,7 +10,7 @@ app.use(bodyParser.json())
 app.use(cors(
     {
         origin: [
-            'https://brent-portfolio.vercel.app/',
+            'https://brent-portfolio.vercel.app',
             'http://localhost:3000'
         ],
         methods: [
