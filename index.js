@@ -8,26 +8,13 @@ require("dotenv").config()
 const app = express()
 app.use(bodyParser.json())
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://brent-portfolio.vercel.app");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-    next();
-});
+const corsOptions = {
+    origin: '*',
+    credentials: true,
+    optionSuccessStatus: 200,
+}
 
-app.use(cors(
-    {
-        origin: [
-            'https://brent-portfolio.vercel.app',
-            'http://localhost:3000'
-        ],
-        methods: [
-            'GET',
-            'POST',
-            'PUT',
-            'DELETE',
-        ],
-    },
-))
+app.use(cors(corsOptions))
 
 const myEmail = process.env.EMAIL
 const password = process.env.PASSWORD
