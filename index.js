@@ -7,7 +7,14 @@ require("dotenv").config()
 
 const app = express()
 app.use(bodyParser.json())
-app.use(cors())
+app.use(cors(
+    {
+        origin: "*",
+        methods: "POST",
+        allowedHeaders: "Content-Type",
+        optionsSuccessStatus: 200
+    }
+))
 
 const myEmail = process.env.EMAIL
 const password = process.env.PASSWORD
