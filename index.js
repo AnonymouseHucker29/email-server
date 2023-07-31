@@ -9,11 +9,17 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors(
     {
-        origin: "*",
-        methods: "POST",
-        allowedHeaders: "Content-Type",
-        optionsSuccessStatus: 200
-    }
+        origin: [
+            'https://brent-portfolio.vercel.app/',
+            'http://localhost:3000'
+        ],
+        methods: [
+            'GET',
+            'POST',
+            'PUT',
+            'DELETE',
+        ],
+    },
 ))
 
 const myEmail = process.env.EMAIL
