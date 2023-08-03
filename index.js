@@ -27,7 +27,7 @@ const password = process.env.PASSWORD
 app.post("/", (req, res) => {
 
     try {
-        const { name, email, message } = req.body;
+        const { name, email, message } = req.body
 
         const transporter = nodemailer.createTransport({
             service: "gmail",
@@ -38,14 +38,14 @@ app.post("/", (req, res) => {
             host: "smtp.gmail.com",
             port: 465,
             secure: true,
-        });
+        })
 
         const mailOptions = {
             from: myEmail,
             to: myEmail,
             subject: "Portfolio Email",
             text: `Name: ${name}\n\nEmail: ${email}\n\nMessage: ${message}`,
-        };
+        }
 
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
