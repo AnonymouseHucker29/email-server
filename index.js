@@ -1,8 +1,3 @@
-/*
-    - Server for sending emails on my portfolio website (https://brent.portfolio.vercel.app)
-    - Deployed in cyclic.sh (https://stormy-onesies.cyclic.cloud/)
-*/
-
 const express = require("express")
 const bodyParser = require("body-parser")
 const nodemailer = require("nodemailer")
@@ -10,8 +5,7 @@ const cors = require("cors")
 
 require("dotenv").config()
 
-const app = express()
-app.use(bodyParser.json())
+const app = express().use(bodyParser.json())
 
 const corsOptions = {
     origin: '*',
